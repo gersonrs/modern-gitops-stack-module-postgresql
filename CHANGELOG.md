@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.0...v3.0.1) (2026-11-20)
+
+
+### 🔥 Bug Fixes
+
+* allow bitnamilegacy images in the chart ([#29](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/29)) ([64543f9](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/64543f98569432ec141b2590df44a1d400546baf))
+
 ## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v2.15.0...v3.0.0) (2026-11-20)
 
 
