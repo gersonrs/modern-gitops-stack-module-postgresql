@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v2.15.0...v3.0.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* provider major bumps and a stricter Terraform baseline; consumers must run `terraform init -upgrade`.
+
+### 🚀 New Features
+
+* upgrade charts, providers and Terraform baseline ([#27](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/27)) ([7d4c54b](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/7d4c54b8c5bffed635d1605a4da4eab28bee2124))
+
 ## [2.15.0](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v2.14.0...v2.15.0) (2026-07-13)
 
 
