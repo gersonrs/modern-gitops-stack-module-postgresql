@@ -24,6 +24,9 @@ locals {
         }
       }
       global = {
+        security = {
+          allowInsecureImages = true
+        }
         postgresql = {
           auth = {
             username       = local.credentials.username
