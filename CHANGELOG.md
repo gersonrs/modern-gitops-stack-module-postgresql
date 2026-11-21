@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.2](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.1...v3.0.2) (2026-11-21)
+
+
+### 🔥 Bug Fixes
+
+* encrypt passwords with md5 so hive-metastore can connect ([#31](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/31)) ([bdb94c8](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/bdb94c827fc906c2bec3a69414c65b67aeb6587a))
+
 ## [3.0.1](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.0...v3.0.1) (2026-11-20)
 
 
