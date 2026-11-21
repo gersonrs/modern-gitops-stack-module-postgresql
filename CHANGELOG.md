@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.3](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.2...v3.0.3) (2026-11-21)
+
+
+### 🔥 Bug Fixes
+
+* create the hive role as superuser in the init script ([#33](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/33)) ([59d2b39](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/59d2b39473ccf36d4638320d252142c3255831e4))
+
 ## [3.0.2](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.1...v3.0.2) (2026-11-21)
 
 
