@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.5](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.4...v3.0.5) (2026-11-21)
+
+
+### 🔥 Bug Fixes
+
+* give the application role ownership of its databases ([#37](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/37)) ([0f7b15a](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/0f7b15a39ff58af85ad55a4e20acb2029e5f6c7c))
+
 ## [3.0.4](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.3...v3.0.4) (2026-11-21)
 
 
