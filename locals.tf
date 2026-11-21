@@ -49,7 +49,7 @@ locals {
           scripts = {
             "init.sql" = <<-EOT
 %{for db in local.databases~}
-CREATE DATABASE ${db};
+CREATE DATABASE ${db} OWNER ${local.credentials.username};
 %{endfor~}
 CREATE USER ${local.credentials.username}hive WITH PASSWORD 'md5${md5("${local.credentials.password}${local.credentials.username}hive")}';
 CREATE DATABASE metastore OWNER ${local.credentials.username}hive;
