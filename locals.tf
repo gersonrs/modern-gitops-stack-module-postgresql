@@ -46,32 +46,14 @@ locals {
       }
       primary = {
         initdb = {
-          user     = "${local.credentials.username}"
-          password = "${local.credentials.password}"
           scripts = {
-            # The chart runs init scripts as POSTGRES_INITSCRIPTS_USERNAME,
-            # which defaults to the application user (CREATEDB only, no
-            # CREATEROLE), so the hive role has to be created by the
-            # superuser. The script is sourced by the entrypoint, hence the
-            # subshell: it keeps `set -e` and PGPASSWORD from leaking out.
-            "init.sh" = <<-EOT
-            (
-              set -e
-              export PGPASSWORD="$(cat "$POSTGRES_POSTGRES_PASSWORD_FILE")"
-              psql -v ON_ERROR_STOP=1 -U postgres -d postgres <<'SQL'
-            %{for db in local.databases~}
-            CREATE DATABASE ${db};
-            %{endfor~}
-            CREATE USER ${local.credentials.username}hive WITH PASSWORD 'md5${md5("${local.credentials.password}${local.credentials.username}hive")}';
-            CREATE DATABASE metastore OWNER ${local.credentials.username}hive;
-            GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
-            SQL
-              psql -v ON_ERROR_STOP=1 -U postgres -d metastore <<'SQL'
-            GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO ${local.credentials.username}hive;
-            GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO ${local.credentials.username}hive;
-            GRANT USAGE ON SCHEMA public TO ${local.credentials.username}hive;
-            SQL
-            )
+            "init.sql" = <<-EOT
+%{for db in local.databases~}
+CREATE DATABASE ${db};
+%{endfor~}
+CREATE USER ${local.credentials.username}hive WITH PASSWORD 'md5${md5("${local.credentials.password}${local.credentials.username}hive")}';
+CREATE DATABASE metastore OWNER ${local.credentials.username}hive;
+GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
             EOT
           }
         }
@@ -83,6 +65,18 @@ locals {
           {
             name  = "POSTGRESQL_PASSWORD_ENCRYPTION"
             value = "md5"
+          },
+          # The chart runs initdb scripts as POSTGRES_INITSCRIPTS_USERNAME,
+          # which defaults to the application user. That role is created with
+          # CREATEDB but not CREATEROLE, so "CREATE USER ...hive" failed and
+          # the script aborted before creating the metastore database.
+          {
+            name  = "POSTGRES_INITSCRIPTS_USERNAME"
+            value = "postgres"
+          },
+          {
+            name  = "POSTGRES_INITSCRIPTS_PASSWORD"
+            value = "${local.credentials.password}"
           }
         ]
         service = {
