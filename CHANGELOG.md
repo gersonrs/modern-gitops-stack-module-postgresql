@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.4](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.3...v3.0.4) (2026-11-21)
+
+
+### 🔥 Bug Fixes
+
+* run initdb scripts as the postgres superuser ([#35](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/35)) ([044dbf5](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/044dbf59f6d2fd7a77b5bc8326302292c05367a5))
+
 ## [3.0.3](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.2...v3.0.3) (2026-11-21)
 
 
