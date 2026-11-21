@@ -62,6 +62,16 @@ GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
             EOT
           }
         }
+        # The hive-metastore image ships a JDBC driver that predates
+        # PostgreSQL 14's scram-sha-256 default and fails with
+        # "The authentication type 10 is not supported". The md5 hash in
+        # init.sql only takes effect when the server encrypts with md5.
+        extraEnvVars = [
+          {
+            name  = "POSTGRESQL_PASSWORD_ENCRYPTION"
+            value = "md5"
+          }
+        ]
         service = {
           type = "ClusterIP"
         }
