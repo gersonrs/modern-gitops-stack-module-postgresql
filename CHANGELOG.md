@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.5...v4.0.0) (2026-11-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* PostgreSQL jumps a major version, so an existing data directory needs pg_upgrade; the persistence layout and the auth secret keys are unchanged.
+
+### 🚀 New Features
+
+* upgrade PostgreSQL to Bitnami chart 18.12.24 ([#39](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/39)) ([6a8c4a6](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/6a8c4a6a46d93b7d11c80d02ce5f357931fa86f9))
+
 ## [3.0.5](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.4...v3.0.5) (2026-11-21)
 
 
