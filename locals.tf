@@ -64,8 +64,11 @@ GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
         # "The authentication type 10 is not supported". The md5 hash in
         # init.sql only takes effect when the server encrypts with md5.
         extraEnvVars = [
+          # Renamed in PostgreSQL 18: the old POSTGRESQL_PASSWORD_ENCRYPTION
+          # is ignored, which silently left the server on scram-sha-256 and
+          # broke the hive-metastore JDBC driver.
           {
-            name  = "POSTGRESQL_PASSWORD_ENCRYPTION"
+            name  = "POSTGRESQL_AUTH_METHOD"
             value = "md5"
           },
           # The chart runs initdb scripts as POSTGRES_INITSCRIPTS_USERNAME,

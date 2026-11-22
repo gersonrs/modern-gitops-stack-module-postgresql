@@ -19,6 +19,8 @@ The following requirements are needed by this module:
 
 The following providers are used by this module:
 
+- [[provider_null]] <<provider_null,null>> (~> 3.3)
+
 - [[provider_kubernetes]] <<provider_kubernetes,kubernetes>>
 
 - [[provider_random]] <<provider_random,random>> (~> 3.9)
@@ -26,8 +28,6 @@ The following providers are used by this module:
 - [[provider_argocd]] <<provider_argocd,argocd>> (~> 7.18)
 
 - [[provider_utils]] <<provider_utils,utils>> (~> 2.7)
-
-- [[provider_null]] <<provider_null,null>> (~> 3.3)
 
 === Resources
 
@@ -304,11 +304,11 @@ Description: Postgres Cluster IPs
 [cols="a,a",options="header,autowidth"]
 |===
 |Name |Version
+|[[provider_null]] <<provider_null,null>> |~> 3.3
 |[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |n/a
 |[[provider_random]] <<provider_random,random>> |~> 3.9
-|[[provider_utils]] <<provider_utils,utils>> |~> 2.7
 |[[provider_argocd]] <<provider_argocd,argocd>> |~> 7.18
-|[[provider_null]] <<provider_null,null>> |~> 3.3
+|[[provider_utils]] <<provider_utils,utils>> |~> 2.7
 |===
 
 = Resources
