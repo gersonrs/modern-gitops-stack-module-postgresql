@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v4.0.0...v4.0.1) (2026-11-22)
+
+
+### 🔥 Bug Fixes
+
+* use POSTGRESQL_AUTH_METHOD on PostgreSQL 18 ([#41](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/41)) ([4fba0e3](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/4fba0e30c2ced6ac3d32013406c92e4010669cce))
+
 ## [4.0.0](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v3.0.5...v4.0.0) (2026-11-22)
 
 
