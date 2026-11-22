@@ -24,9 +24,6 @@ locals {
         }
       }
       global = {
-        security = {
-          allowInsecureImages = true
-        }
         postgresql = {
           auth = {
             username       = local.credentials.username
@@ -40,8 +37,13 @@ locals {
           }
         }
       }
+      # Bitnami stopped publishing versioned tags to the free registry: only
+      # `latest` and digests are available, and bitnamilegacy tops out at
+      # 17.6.0. Pin the digest so the deployment stays reproducible; it
+      # currently resolves to PostgreSQL 18.7.0.
       image = {
-        repository = "bitnamilegacy/postgresql"
+        repository = "bitnami/postgresql"
+        digest     = "sha256:2b159820ab3aee5655746887aae740402153ef937968370ff4e03461822b4ba9"
         debug      = var.debug
       }
       primary = {
