@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v4.0.1...v4.0.2) (2026-11-23)
+
+
+### 🔥 Bug Fixes
+
+* stop forcing md5 authentication for the hive user ([#43](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/43)) ([601870b](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/601870b7613bb1e922c720df1b8c58cd07b41f7b))
+
 ## [4.0.1](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v4.0.0...v4.0.1) (2026-11-22)
 
 
