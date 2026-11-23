@@ -125,7 +125,7 @@ Description: Override of target revision of the application chart.
 
 Type: `string`
 
-Default: `"v4.0.2"`
+Default: `"v4.0.3"`
 
 ==== [[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
 
@@ -306,8 +306,8 @@ Description: Postgres Cluster IPs
 |Name |Version
 |[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |n/a
 |[[provider_random]] <<provider_random,random>> |~> 3.9
-|[[provider_utils]] <<provider_utils,utils>> |~> 2.7
 |[[provider_argocd]] <<provider_argocd,argocd>> |~> 7.18
+|[[provider_utils]] <<provider_utils,utils>> |~> 2.7
 |[[provider_null]] <<provider_null,null>> |~> 3.3
 |===
 
@@ -389,7 +389,7 @@ Description: Postgres Cluster IPs
 |[[input_target_revision]] <<input_target_revision,target_revision>>
 |Override of target revision of the application chart.
 |`string`
-|`"v4.0.2"`
+|`"v4.0.3"`
 |no
 
 |[[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
