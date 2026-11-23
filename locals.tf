@@ -53,24 +53,13 @@ locals {
 %{for db in local.databases~}
 CREATE DATABASE ${db} OWNER ${local.credentials.username};
 %{endfor~}
-CREATE USER ${local.credentials.username}hive WITH PASSWORD 'md5${md5("${local.credentials.password}${local.credentials.username}hive")}';
+CREATE USER ${local.credentials.username}hive WITH PASSWORD '${local.credentials.password}';
 CREATE DATABASE metastore OWNER ${local.credentials.username}hive;
 GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
             EOT
           }
         }
-        # The hive-metastore image ships a JDBC driver that predates
-        # PostgreSQL 14's scram-sha-256 default and fails with
-        # "The authentication type 10 is not supported". The md5 hash in
-        # init.sql only takes effect when the server encrypts with md5.
         extraEnvVars = [
-          # Renamed in PostgreSQL 18: the old POSTGRESQL_PASSWORD_ENCRYPTION
-          # is ignored, which silently left the server on scram-sha-256 and
-          # broke the hive-metastore JDBC driver.
-          {
-            name  = "POSTGRESQL_AUTH_METHOD"
-            value = "md5"
-          },
           # The chart runs initdb scripts as POSTGRES_INITSCRIPTS_USERNAME,
           # which defaults to the application user. That role is created with
           # CREATEDB but not CREATEROLE, so "CREATE USER ...hive" failed and
