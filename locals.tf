@@ -60,6 +60,12 @@ GRANT ALL PRIVILEGES ON DATABASE metastore TO ${local.credentials.username}hive;
           }
         }
         extraEnvVars = [
+          # Bitnami defaults pg_hba to md5, which PostgreSQL 18 can no longer
+          # verify at all, so the server must be told to use scram-sha-256.
+          {
+            name  = "POSTGRESQL_PGHBA_AUTH_METHOD"
+            value = "scram-sha-256"
+          },
           # The chart runs initdb scripts as POSTGRES_INITSCRIPTS_USERNAME,
           # which defaults to the application user. That role is created with
           # CREATEDB but not CREATEROLE, so "CREATE USER ...hive" failed and
