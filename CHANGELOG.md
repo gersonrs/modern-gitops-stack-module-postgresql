@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.4](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v4.0.3...v4.0.4) (2026-11-24)
+
+
+### 📚 Documentation
+
+* add usage and dependencies to the module documentation ([#47](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/issues/47)) ([631e4fa](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/commit/631e4fa39f5e7d250783ad942f09a8daed6f9a15))
+
 ## [4.0.3](https://github.com/gersonrs/modern-gitops-stack-module-postgresql/compare/v4.0.2...v4.0.3) (2026-11-23)
 
 
