@@ -1,6 +1,6 @@
 ---
-name: "minio"
-title: "MinIO Module"
+name: "postgresql"
+title: "PostgreSQL Module"
 version: true
 start_page: README.adoc
 nav:
