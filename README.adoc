@@ -1,4 +1,58 @@
 = modern-gitops-stack-module-postgresql
+// Document attributes to replace along the document
+:postgresql-chart-version: 18.12.24
+:original-repo-url: https://github.com/bitnami/charts
+
+A https://modern-gitops-stack.io[Modern GitOps Stack] module to deploy PostgreSQL, the shared relational database that backs Keycloak, Airflow, MLflow and the Hive Metastore.
+
+The postgresql chart used by this module is shipped in this repository as well, in order to avoid any unwanted behaviors caused by unsupported versions.
+
+[cols="1,1,1",options="autowidth,header"]
+|===
+|Current Chart Version |Original Repository |Default Values
+|*18.12.24* |https://github.com/bitnami/charts/tree/main/bitnami/postgresql[postgresql] |https://artifacthub.io/packages/helm/postgresql/postgresql/18.12.24?modal=values[`values.yaml`]
+|===
+
+== Usage
+
+This module can be declared by adding the following block to your Terraform configuration:
+
+[source,terraform]
+----
+module "postgresql" {
+  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-postgresql.git?ref=<RELEASE>"
+
+  cluster_name   = local.cluster_name
+  base_domain    = local.base_domain
+  subdomain      = local.subdomain
+  cluster_issuer = local.cluster_issuer
+  app_autosync   = local.app_autosync
+
+  dependency_ids = {
+    argocd         = module.argocd.id
+    istio          = module.istio.id
+    crds_bootstrap = module.crds_bootstrap.id
+  }
+}
+----
+
+The application is deployed to the `database` namespace.
+
+== Technical Reference
+
+=== Dependencies
+
+==== `module.argocd.id`
+
+Argo CD applies the application.
+
+==== `module.istio.id`
+
+Database traffic is tunnelled by the ambient mesh, which requires Istio.
+
+==== `module.crds_bootstrap.id`
+
+PostgreSQL ships a ServiceMonitor, which needs the Prometheus Operator CRDs.
 
 // BEGIN_TF_DOCS
 === Requirements
